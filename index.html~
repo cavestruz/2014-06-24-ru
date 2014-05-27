@@ -1,0 +1,204 @@
+---
+layout: bootcamp
+root: .
+venue: University Corporation for Atmospheric Research
+address: 3080 Center Green Drive, Boulder, CO
+country: United-States
+humandate: Apr 09-10, 2014
+humantime: 9:00 am - 4:45 pm
+startdate: 2014-04-09
+enddate: 2014-04-10
+latlng: 40.031528, -105.245847
+registration: restricted
+instructor: ["Edmund Hart", "Camille Avestruz"]
+contact: admin@software-carpentry.org
+ipythonnotebook: http://nbviewer.ipython.org/urls
+raw: raw.github.com/swcarpentry/bc/gh-pages
+---
+<!--
+    Edit the values in the parameter block above to be appropriate for your bootcamp.
+    Please use three-letter month names for the 'humandate' field.
+-->
+
+<!--
+    This block includes the Eventbrite registration widget if 'eventbrite' has been set in the header.
+-->
+{% if page.eventbrite %}
+<iframe src="http://www.eventbrite.com/tickets-external?eid={{page.eventbrite}}&ref=etckt" frameborder="0" width="100%" scrolling="auto"></iframe>
+{% endif %}
+
+<h2>General Information</h2>
+
+<p>
+  <a href="http://software-carpentry.org">Software Carpentry</a>'s mission
+  is to help scientists and engineers become more productive
+  by teaching them basic lab skills for computing
+  like program design, version control, data management, and task automation.
+  This two-day hands-on bootcamp will cover basic concepts and tools;
+  participants will be encouraged to help one another
+  and to apply what they have learned to their own research problems.
+</p>
+
+<!-- This block displays the instructors' names if they are available. -->
+{% if page.instructor %}
+<p>
+  <strong>Instructors:</strong>
+  {{page.instructor | join: ', ' %}}
+</p>
+{% endif %}
+
+<!--
+    Modify this block to reflect the target audience for your bootcamp.
+    In particular, if it is only open to people from a particular institution,
+    or if specialized prerequisite knowledge is required, please mention that.
+-->
+<p>
+  <strong>Who:</strong>
+  The course is aimed at graduate students and other researchers.
+</p>
+
+<!--
+    This block displays the address and links to a map showing directions.
+-->
+{% if page.latlng %}
+<p>
+  <strong>Where:</strong>
+  {{ page.address }}.
+  Get directions with
+  <a href="http://www.openstreetmap.org/?mlat={{ page.latlng | replace:',','&mlon=' }}&zoom=16">OpenStreetMap</a>
+  or
+  <a href="http://maps.google.com/maps?q={{ page.latlng }}">Google Maps</a>.
+</p>
+{% endif %}
+
+<!--
+    Modify the block below if there are any special requirements.
+-->
+<p>
+  <strong>Requirements:</strong>
+  Participants must bring a laptop with a few specific software packages installed
+  (listed below).
+</p>
+
+<!--
+    This block automatically inserts a contact email address if one has been specified for the page.
+    If one hasn't, this block inserts the generic contact address for Software Carpentry.
+-->
+<p>
+  <strong>Contact</strong>:
+  Please mail
+  {% if page.contact %}
+    <a href='mailto:{{page.contact}}'>{{page.contact}}</a>
+  {% else %}
+    <a href='mailto:{{site.contact}}'>{{site.contact}}</a>
+  {% endif %}
+  for more information.
+</p>
+
+<hr/>
+
+<!--
+    Edit this block to show the syllabus and schedule for your bootcamp.
+-->
+<h2>Schedule</h2>
+
+<table class="table table-striped">
+  <tr> <td>Wednesday</td> <td>08:30-9:00</td>  <td>Help with set-up issues if you would like</td> </tr>
+    <tr><td></td>       <td>09:00-10:00</td>  <td>Introductions / The Unix shell</td> </tr>
+  <tr> <td></td>        <td>10:00 - 10:15</td>   <td>Break (or work through the emacs tutorial)</td> </tr>
+  <tr> <td></td>        <td>10:15 - 11:15</td>   <td>Task automation with Bash</td> </tr>
+  <tr> <td></td>        <td>11:15 - 12:15</td>   <td>Introduction to version control and git</td> </tr>
+
+  <tr> <td></td>        <td>12:15 - 13:30</td>  <td>Lunch break</td> </tr>
+  <tr> <td></td>        <td>13:30 - 15:00</td>  <td>More version control and git</td> </tr>
+  <tr> <td></td>        <td>15:00 - 15:15</td>  <td>Break</td> </tr>
+  <tr> <td></td>        <td>15:15 - 16:45</td>  <td>Adavanced git / Github tools / Wrap-up</td> </tr>
+  <tr> <td>Thursday</td> <td>09:00 - 10:00</td>  <td>Introduction to Python</td> </tr>
+  <tr> <td></td>        <td>10:00 - 10:15</td>   <td>Break</td> </tr>
+  <tr> <td></td>        <td>10:15 - 12:15</td>   <td> Intermediate Python data types and control flow</td> </tr>
+
+  <tr> <td></td>        <td>12:15 - 13:30</td>  <td>Lunch break</td> </tr>
+  <tr> <td></td>        <td>13:30 - 15:00</td>  <td>Python functions and file I/O</td> </tr>
+  <tr> <td></td>        <td>15:00 - 15:15</td>  <td>Break</td> </tr>
+  <tr> <td></td>        <td>15:15 - 16:45</td>  <td>Unit testing in Python / Wrap-up</td> </tr>
+</table>
+
+<hr/>
+
+<!--
+    Edit the setup instructions in _includes/setup.html to reflect your bootcamp.
+    (In particular, most bootcamps teach either Python or R, not both.)
+-->
+
+<h2>Setup</h2>
+
+<p>
+  To participate in a Software Carpentry bootcamp,
+  you will need working copies of the software described below.
+  Please make sure to install everything
+  (or at least to download the installers)
+  <em>before</em> the start of your bootcamp.
+</p>
+
+{% include setup.html %}
+
+<h2>Topics</h2>
+
+<div class="row-fluid">
+  <div class="span6">
+    <h3><a href="lessons/swc-shell/tutorial.html">The Unix
+    Shell</a></h3>
+    <ul>
+      <li>{% include guide-shell/intro/title.md %}</li>
+      <li>{% include guide-shell/filedir/title.md %}</li>
+      <li>{% include guide-shell/create/title.md %}</li>
+      <li>{% include guide-shell/pipefilter/title.md %}</li>
+      <li>{% include guide-shell/loop/title.md %}</li>
+      <li>{% include guide-shell/scripts/title.md %}</li>
+      <li>{% include guide-shell/find/title.md %}</li>
+    </ul>
+  </div>
+  <div class="span6">
+    <h3><a href="lessons/swc-git/tutorial.html">Version Control With
+    Git </a> <a href="https://github.com/swcarpentry/bc/blob/master/lessons/swc-git/tutorial.md">
+    (SWC master version)</a></h3>
+    <ul>
+      <li>A Better Backup</li>
+      <li>Branching</li>
+      <li>Merging</li>
+      <li>Collaborating</li>
+    </ul>
+  </div>
+  <div class="span6">
+    <h3>Python</h3>
+    <ul>
+        <li><a href="{{page.ipythonnotebook}}/{{page.raw}}/lessons/thw-python/vars-types/variables.ipynb">Variables
+        and Types</a></li>
+        <li><a href="{{page.ipythonnotebook}}/{{page.raw}}/lessons/thw-python/data-structures/data_structures.ipynb">Data
+        Structures</\
+a></li>
+        <li><a href="{{page.ipythonnotebook}}/{{page.raw}}/lessons/thw-python/flow-control/python_flow_control.ipynb">Flow
+        Control</a>
+</li>
+        <li><a href="{{page.ipythonnotebook}}/{{page.raw}}/lessons/thw-python/strings-io/tutorial.ipynb">Strings
+        and File I/O</a></li>
+        <li><a href="{{page.ipythonnotebook}}/{{page.raw}}/lessons/thw-python/functions-and-modules/python_functions_and_modules.ipynb\
+">Functions and Modules</a></li>
+        <li><a href="lessons/swc-setdict/tutorial.html">Sets and
+        Dictionaries</a></li>
+      </ul>
+  </div>
+
+
+<h2>Reference Guides</h2>
+
+<ul>
+  <li><a href="https://etherpad.mozilla.org/aSXDMHiJX2">The bootcamp
+  Etherpad</a>
+  <li><a href="{{page.root}}/lessons/ref/shell.html">The Unix
+  Shell</a></li>
+  <li><a href="{{page.root}}/lessons/ref/python.html">Python</a></li>
+  <li><a href="{{page.root}}/lessons/ref/sql.html">SQL</a></li>
+  <li><a href="http://knightlab.northwestern.edu/2014/03/13/googling-for-code-solutions-can-be-tricky-heres-how-to-get-started/">How
+  to Effectively Google for Help When Your Code Isn't Working</a></li>
+</ul>
